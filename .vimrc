@@ -16,6 +16,10 @@
 " pathogen.vim用
 call pathogen#runtime_append_all_bundles()
 
+imap <C-z> <C-y>
+imap <nul> <C-z>,
+let g:user_zen_expandaddr_key='<Nul>'
+
 "#######################
 " 検索系
 "#######################
