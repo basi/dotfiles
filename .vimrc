@@ -16,6 +16,9 @@
 " pathogen.vim用
 call pathogen#runtime_append_all_bundles()
 
+" neocomplcache
+let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
+
 imap <C-z> <C-y>
 imap <nul> <C-z>,
 let g:user_zen_expandaddr_key='<Nul>'

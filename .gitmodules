@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/zencoding-vim"]
 	path = .vim/bundle/zencoding-vim
 	url = git://github.com/mattn/zencoding-vim
+[submodule ".vim/bundle/Match-Bracket-for-Objective-C"]
+	path = .vim/bundle/Match-Bracket-for-Objective-C
+	url = git://github.com/vim-scripts/Match-Bracket-for-Objective-C
