@@ -1,3 +1,7 @@
+if filereadable(expand('~/.vimrc.local'))
+    source ~/.vimrc.local
+endif
+
 " 基本的な設定はこちら
 " .vim/bundle/vimrc/plugin/basic.vim
 "
@@ -12,12 +16,9 @@
 "
 " 独自関数や便利関数はこちら
 " .vim/bundle/vimrc/plugin/util.vim
-
 " pathogen.vim用
-call pathogen#runtime_append_all_bundles()
 
-" neocomplcache
-let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
+call pathogen#runtime_append_all_bundles()
 
 imap <C-z> <C-y>
 imap <nul> <C-z>,
