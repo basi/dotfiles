@@ -1,0 +1,2 @@
+# viのエイリアス設定
+alias vi='/usr/bin/vim'
