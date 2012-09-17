@@ -1,2 +1,13 @@
-# viのエイリアス設定
-alias vi='/usr/bin/vim'
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# User specific aliases and functions
+alias vi='vim'
+
+source $HOME/perl5/perlbrew/etc/bashrc
+
+alias ls='ls --color=tty' 2>/dev/null
+alias ll='ls -l --color' 2>/dev/null
+alias l.='ls -d --color .*' 2>/dev/null
