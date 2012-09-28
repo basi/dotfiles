@@ -20,19 +20,29 @@ endif
 
 call pathogen#runtime_append_all_bundles()
 
+" カーソル行をハイライト
+  set cursorline
+  " カレントウィンドウにのみ罫線を引く
+  augroup cch
+    autocmd! cch
+    autocmd WinLeave * set nocursorline
+    autocmd WinEnter,BufRead * set cursorline
+  augroup END
+
+:hi clear CursorLine
+:hi CursorLine gui=underline
+highlight CursorLine ctermbg=black guibg=black
+
+"Escの2回押しでハイライト消去
+nmap <ESC><ESC> ;nohlsearch<CR><ESC>
+
+" 保存時に行末の空白を除去する
+autocmd BufWritePre * :%s/\s\+$//ge
+" 保存時にtabをスペースに変換する
+autocmd BufWritePre * :%s/\t/  /ge
 imap <C-z> <C-y>
 imap <nul> <C-z>,
 let g:user_zen_expandaddr_key='<Nul>'
-
-"#######################
-" 検索系
-"#######################
-set ignorecase "検索文字列が小文字の場合は大文字小文字を区別なく検索する
-set smartcase "検索文字列に大文字が含まれている場合は区別して検索する
-set wrapscan "検索時に最後まで行ったら最初に戻る
-set noincsearch "検索文字列入力時に順次対象文字列にヒットさせない
-set nohlsearch "検索結果文字列の非ハイライト表示
-set nobackup "fugahoge
 
 " 文字コードの自動認識
 if &encoding !=# 'utf-8'
