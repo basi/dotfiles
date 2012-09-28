@@ -42,4 +42,3 @@ set list                " Tabや改行を可視化
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P " ステータス行に文字コードと改行コードを表示
 set incsearch           "検索打ち込み中にも検索
 set hlsearch            "検索打ち込み中にも検索
-

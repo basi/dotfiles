@@ -29,20 +29,43 @@ call pathogen#runtime_append_all_bundles()
     autocmd WinEnter,BufRead * set cursorline
   augroup END
 
-:hi clear CursorLine
-:hi CursorLine gui=underline
-highlight CursorLine ctermbg=black guibg=black
+" カーソル行をハイライト表示
+":hi clear CursorLine
+":hi CursorLine gui=underline
+"highlight CursorLine ctermbg=white guibg=block
 
-"Escの2回押しでハイライト消去
+" カーソル行の下線のみを表示
+hi CursorLine gui=underline guibg=NONE
+
+" Escの2回押しでハイライト消去
 nmap <ESC><ESC> ;nohlsearch<CR><ESC>
 
 " 保存時に行末の空白を除去する
 autocmd BufWritePre * :%s/\s\+$//ge
+
 " 保存時にtabをスペースに変換する
 autocmd BufWritePre * :%s/\t/  /ge
 imap <C-z> <C-y>
 imap <nul> <C-z>,
 let g:user_zen_expandaddr_key='<Nul>'
+
+" ;でコマンド入力( ;と:を入れ替)
+noremap ; :
+noremap : ;
+
+" :Ptでインデントモード切替
+command! Pt :set paste!
+
+" PHPLint
+noremap ,l :call PHPLint()<CR>
+function PHPLint()
+    let result = system( &ft . ' -l '. bufname(""))
+    echo result
+endfunction
+
+" .psgi とか .t も Perlなシンタックスハイライトをしてほしい
+autocmd BufNewFile,BufRead *.psgi   set filetype=perl
+autocmd BufNewFile,BufRead *.t      set filetype=perl
 
 " 文字コードの自動認識
 if &encoding !=# 'utf-8'
