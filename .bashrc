@@ -1,13 +1,3 @@
-# プロンプトの設定
-PS1='[\u \W]\$ '
-
-# MacVimの設定
-export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
-alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-
-# viのエイリアス設定
-alias vi='/usr/bin/vim'
-
 # コマンドのエイリアス設定
 alias hg='history | grep'
 alias gadd='git add'
