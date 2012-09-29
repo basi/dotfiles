@@ -15,6 +15,5 @@ PATH=$PATH:$HOME/bin
 if [ -x /usr/bin/uname ] || [ -x /bin/uname ]; then
     case "$(uname)" in
     Linux*) export PATH ;;
-    *) echo "unknown";;
     esac
 fi
